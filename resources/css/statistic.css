@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap");
+
+* {
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+.content {
+	width: 100%;
+	padding: 20px;
+	background-position: center;
+	background-size: cover;
+	height: 100vh;
+	transition: 0.35s;
+}
+
+/* margin-top 수정 */
+.content > h1 {
+	margin-left: 80px;
+	margin-top: 5px;
+	font-size: 35px;
+	font-family: "Jua", sans-serif;
+	font-weight: 100;
+	margin-bottom: 30px;
+	transition: 0.35s;
+}
+
+input#menuicon:checked ~ .content {
+	width: calc(100% - 300px);
+	margin-left: 300px;
+}
+
+input#menuicon:checked ~ .content > h1 {
+	margin-left: 0;
+	transition: 0.35s;
+}
+
+.content > .charts {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(600px, 2fr));
+	justify-items: center;
+}

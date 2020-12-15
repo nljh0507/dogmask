@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+			xmlns:tx="http://www.springframework.org/schema/tx"
+			xmlns:context="http://www.springframework.org/schema/context"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		 								 http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		 								 http://www.springframework.org/schema/context 
+		 								 http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		 								 http://www.springframework.org/schema/tx 
+		 								 http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+		 								 
+		 								 
+	<!-- jndi setting [START] -->	 								 
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+    	<property name="jndiName">
+			<value>java:comp/env/jdbc/jsol</value>
+    	</property>
+  	</bean>	
+	<!-- jndi setting [ END ] -->	
+	
+	<!-- session factory [START] -->
+  	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="/WEB-INF/spring-mybatis-log-app/config/mybatis-config.xml"/>
+		<!-- 단일 mapper locations 설정시 [ END ] -->
+		<!-- 단일 mapper locations 설정시 [START] -->
+		<!-- 다중 mapper locations 설정시 -->
+        <property name="mapperLocations">
+            <array>
+                <value>classpath*:kr/co/g2min/**/**/dao/mapper/*.xml</value>
+                <value>classpath*:kr/co/iam/**/dao/mapper/*.xml</value>
+            </array>
+        </property>
+		
+	</bean>
+	<!-- session factory [ END ] -->
+	
+	<!-- transaction [START] -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    	<property name="dataSource" ref="dataSource"/>
+    </bean>	
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+	<!-- transaction [ END ] -->
+	
+	<!-- mapper scanner [START] -->
+	<bean id="MapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="kr.co.g2min.*, kr.co.iam.*"/>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+	<!-- mapper scanner [ END ] -->
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="52428800"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+</beans>		 								 

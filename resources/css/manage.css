@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap");
+
+* {
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+.content {
+	width: 100%;
+	padding: 20px;
+	background-position: center;
+	background-size: cover;
+	height: 100vh;
+	transition: 0.35s;
+}
+
+.content > h1 {
+	margin-left: 80px;
+	font-size: 35px;
+	font-family: "Jua", sans-serif;
+	font-weight: 100;
+	margin-bottom: 30px;
+	transition: 0.35s;
+}
+
+.top-navbar {
+	text-align: right;
+}
+
+.top-navbar .manage {
+	position: relative;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.top-navbar .manage > div > input {
+	display: none;
+}
+
+.top-navbar .manage > div > label {
+	display: inline-block;
+	text-align: center;
+	line-height: 40px;
+	width: 60px;
+	height: 40px;
+	border-radius: 10px;
+	margin-left: 20px;
+	font-size: 15px;
+	font-weight: 900;
+	color: #fff;
+	outline: none;
+	cursor: pointer;
+}
+
+.top-navbar .manage > div > label[for="register"] {
+	background-color: #70ad47;
+}
+
+.top-navbar .manage > div > label[for="modify"] {
+	background-color: #5b9bd5;
+}
+
+.top-navbar .manage > div > label[for="delete"] {
+	background-color: #ff4f4f;
+}
+
+.top-navbar .manage > div > div {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.2s;
+}
+
+.top-navbar .manage > div > div > .popup {
+	position: relative;
+	padding: 50px;
+	top: 55%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 600px;
+	text-align: center;
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: #009879 10px 10px;
+	display: grid;
+	grid-template-columns: 1fr;
+	z-index: 2;
+	transition: all 0.2s;
+}
+
+/* .top-navbar .manage > div[id="reg"] > div > .popup {
+	box-shadow: #70ad47 10px 10px;
+}
+
+.top-navbar .manage > div[id="mod"] > div > .popup {
+	box-shadow: #5b9bd5 10px 10px;
+} */
+
+.top-navbar .manage > div[id="del"] > div > .popup {
+	height: 300px;
+/* 	box-shadow: #ff4f4f 10px 10px; */
+}
+
+.top-navbar .manage > div > div > .popup > h1 {
+	font-family: "Jua", sans-serif;
+	font-size: 32px;
+	font-weight: 300;
+	text-align: center;
+}
+
+.top-navbar .manage > div > div > .popup > .input-area {
+	position: relative;
+}
+
+.top-navbar .manage > div > div > .popup > .input-area > input,
+.top-navbar .manage > div > div > .popup > .input-area > select {
+	border: none;
+	border-bottom: 1px solid #333;
+	padding: 10px 10px 0 10px;
+	width: 100%;
+	height: 50px;
+	outline: none;
+}
+
+.top-navbar .manage > div > div > .popup > .input-area > select {
+	padding: 10px 6px 0 6px;
+}
+
+.top-navbar .manage > div > div > .popup > .input-area > select > option[value=""] {
+	display: none;
+}
+
+.top-navbar .manage > div > div > .popup > .input-area > label {
+	position: absolute;
+	top: 20px;
+	left: 10px;
+	font-size: 13px;
+	color: #bbb;
+	transition: all 0.2s ease;
+}
+
+.top-navbar .manage > div > div > .popup > .input-area > input:focus ~ label,
+.top-navbar .manage > div > div > .popup > .input-area > input:valid ~ label,
+.top-navbar .manage > div > div > .popup > .input-area > select:valid ~ label {
+	top: 3px;
+	font-size: 10px;
+}
+
+.top-navbar .manage > div > div > .popup > .input-area > select:invalid {
+	color: #bbb;
+}
+
+.top-navbar .manage > div > div > .popup > .input-area > select > option {
+	color: #000;
+}
+
+.top-navbar .manage > div > div > .popup > .buttons {
+	margin-top: 30px;
+	margin-bottom: -50px;
+}
+
+.top-navbar .manage > div > div > .popup > .buttons > button[class="button1"],
+.top-navbar .manage > div > div > .popup > .buttons > label[class="button2"] {
+	position: relative;
+	margin: 30px;
+	padding: 10px 50px;
+	background: #009879;
+	border: none;
+	border-radius: 10px;
+	font-size: 16px;
+	outline: none;
+	color: #fff;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.top-navbar .manage > div > div > .popup > .buttons > label[class="button2"] {
+	background: #bbb;
+}
+
+.top-navbar .manage > div > div > .bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+}
+
+.top-navbar .manage > div > input:checked + label ~ div {
+	opacity: 1;
+	visibility: visible;
+}
+
+.top-navbar .manage > div > input:checked + label ~ div > div {
+	top: 50%;
+}
+
+input#menuicon:checked ~ .content {
+	width: calc(100% - 300px);
+	margin-left: 300px;
+}
+
+input#menuicon:checked ~ .content > h1 {
+	margin-left: 0;
+	transition: 0.35s;
+}

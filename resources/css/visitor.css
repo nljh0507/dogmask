@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap");
+
+* {
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+.content {
+	width: 100%;
+	padding: 20px;
+	background-position: center;
+	background-size: cover;
+	transition: 0.35s;
+}
+
+.content > h1 {
+	margin-left: 80px;
+	font-size: 35px;
+	font-family: "Jua", sans-serif;
+	font-weight: 100;
+	margin-bottom: 30px;
+	transition: 0.35s;
+}
+
+.top-navbar {
+	display: flex;
+	padding: 15px;
+	justify-content: space-between;
+	/* border: 2px solid #b8dfd2; */
+	/* border-radius: 10px; */
+	/* box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
+}
+
+.top-navbar .search-area {
+	display: flex;
+}
+
+.top-navbar .search-area h2 {
+	width: 50px;
+	font-size: 18px;
+	margin-right: 20px;
+}
+
+.top-navbar .search-area .date-search,
+.top-navbar .search-area .word-search {
+	display: flex;
+	margin-right: 50px;
+	align-items: center;
+}
+
+.top-navbar .search-area .date-search .datepicker,
+.top-navbar .search-area .word-search select,
+.top-navbar .search-area .word-search input {
+	height: 40px;
+	border: 2px solid #4eddc1;
+	padding: 5px;
+	outline: none;
+}
+.top-navbar .search-area .date-search .datepicker {
+	border-radius: 10px;
+}
+
+.top-navbar .search-area .word-search select {
+	border-radius: 10px 0 0 10px;
+	border-right: none;
+}
+
+.top-navbar .search-area .word-search input {
+	border-radius: 0 10px 10px 0;
+	border-left: none;
+}
+
+.top-navbar .search-area .date-search p {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.top-navbar .search-area button {
+	width: 60px;
+	height: 40px;
+	background-color: #e6b78e;
+	border: none;
+	border-radius: 10px;
+	margin-left: 20px;
+	font-size: 15px;
+	font-weight: 900;
+	outline: none;
+	cursor: pointer;
+}
+
+.top-navbar .search-area .search-button {
+	background-color: #89e2de;
+	margin-left: -30px;
+}
+
+.top-navbar .setting {
+	display: flex;
+}
+
+/* padding-top 수정 */
+.top-navbar .setting h2 {
+	width: 80px;
+	font-size: 18px;
+	padding-top: 5px;
+	margin-right: 20px;
+}
+
+.top-navbar .setting select {
+	height: 40px;
+	border: 2px solid #4eddc1;
+	border-radius: 10px;
+	padding: 5px;
+	outline: none;
+}
+
+input#menuicon:checked ~ .content {
+	width: calc(100% - 300px);
+	margin-left: 300px;
+}
+
+input#menuicon:checked ~ .content > h1 {
+	margin-left: 0;
+	transition: 0.35s;
+}

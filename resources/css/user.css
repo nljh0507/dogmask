@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+#header {
+	position: fixed;
+	padding: 18px;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	font-size: 15px;
+	z-index: 999;
+}
+
+#header > div {
+	display: flex;
+	justify-content: space-between;
+}
+
+#camera,
+#camera--view,
+#camera--sensor,
+#camera--output {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+#camera--view,
+#camera--sensor,
+#camera--output {
+	transform: scaleX(-1);
+	filter: FlipH;
+}
+
+#camera--trigger {
+	position: fixed;
+	width: 480px;
+	height: 150px;
+	color: white;
+	top: 100px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: rgba(0, 0, 0, 0.8);
+	font-size: 32px;
+	font-weight: 900;
+	border: none;
+	border-radius: 10px;
+	text-align: center;
+	outline: none;
+}
+
+#state {
+	position: fixed;
+	width: 480px;
+	height: 150px;
+	color: white;
+	top: 100px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: rgba(0, 0, 0, 0.8);
+	border: none;
+	border-radius: 10px;
+	outline: none;
+	visibility: hidden;
+}
+
+/* pass, fail js로 구현*/
+#state.pass {
+	background-color: rgba(102, 158, 64, 0.8);
+	visibility: visible;
+}
+
+#state.fail {
+	background-color: rgba(255, 79, 79, 0.8);
+	visibility: visible;
+}
+
+#state > table {
+	width: 100%;
+	height: 100%;
+	padding: 30px;
+}
+
+#state > table .image {
+	text-align: left;
+	vertical-align: middle; /* TODO: 세로 가운데 정렬 */
+	padding-top: 5px; /* 세로 가운데 정렬 : 임시 처리 */
+}
+
+#state > table .image > #mark {
+	height: 80px;
+}
+
+#state > table .info {
+	text-align: right;
+	vertical-align: middle;
+}
+
+#state > table .info[id="dname"] {
+	font-size: 23px;
+}
+
+#state > table .info[id="spec"] {
+	/* font-size: 18px; */
+	font-size: 40px;
+}
+
+#guide {
+	position: fixed;
+	bottom: 10%;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #fff;
+	font-size: 21px;
+}
+
+#footer {
+	position: fixed;
+	padding: 18px;
+	width: 100%;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	font-size: 15px;
+	z-index: 999;
+}

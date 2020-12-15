@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <id>G2NIN</id>
+    <siteInformation>
+        <url>http://localhost</url>
+        <title>G2MIN FRAMEWORK 4.0.0</title>
+        <metaTag>G2MIN-FRAMEWORK 4.0.0</metaTag>
+        <dbmsInfo>maria</dbmsInfo>
+        <logPrintFlag>Y</logPrintFlag>
+    </siteInformation>
+    <subSiteInformationList>
+       <subSiteInformation>
+           <siteTitle>지투민</siteTitle>
+           <siteURL>g2min</siteURL>
+           <template>01</template>
+       </subSiteInformation>
+       <subSiteInformation>
+           <siteTitle>j-sol IAM</siteTitle>
+           <siteURL></siteURL>
+           <template>01</template>
+       </subSiteInformation>
+    </subSiteInformationList>
+</project>
